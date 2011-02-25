@@ -1,0 +1,49 @@
+Linuxtrack WINE DLL
+-------------------
+Author: John Tsiombikas <nuclear@member.fsf.org>
+
+1. About the Linuxtrack WINE DLL
+
+This program provides the glue for letting TrackIR-compatible windows
+applications running under WINE on GNU/Linux, communicate with the linuxtrack
+6dof headtracker instead of TrackIR.
+
+In essence it's just a drop-in replacement for Natural Point's npclient.dll
+which is used by windows apps to get head position/rotation data from TrackIR.
+It implements the same API provided by npclient.dll, but instead of feeding
+the applications with data coming from TrackIR, it uses linuxtrack as a source.
+
+2. Installation
+
+To compile the linuxtrack wine dll you will need the wine development tools
+(winegcc etc), linuxtrack, expat, and Xlib. If you're running on a 64bit system,
+you will have to install the 32bit versions of those libraries.
+
+After you gather all dependencies, just run make and make install, and
+everything should be ready. Do not run make install as root, there's no support
+for system-wide installation at this point.
+
+3. Usage
+
+Just run any application that supports TrackIR through wine, and it should work
+automatically. After you run an application for the first time, a new linuxtrack
+profile will automatically be created, and you may use ltr_gui, the linuxtrack
+configuration tool, to tweak tracking details.
+
+By default scroll-lock is used to recenter the camera, and pause/break to toggle
+the tracking on and off. You may change these keybindings by editing the
+.ltrdll/config file. The names of the keys are the same as those in
+/usr/include/X11/keysymdef.h without the prefix XK_.
+
+4. Bugs
+
+- Apps using the encrypted protocol to communicate with TrackIR are not
+  supported yet.
+
+Send bug reports to nuclear@member.fsf.org, and make sure to include the logfile
+/tmp/npdll.log with your bug report.
+
+Demanding a fix or a feature will place you permanently in my ignore list. Well
+written patches are more than welcome, ugly code will go straight to /dev/null,
+make sure you follow the conventions of the rest of the code when hacking
+something that you plan to send me.

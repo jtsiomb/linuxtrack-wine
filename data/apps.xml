@@ -1,0 +1,866 @@
+<!--
+NOTE:  The version number must be incremented each time the list changes!!
+       This is required for the app update to work correctly.
+
+Profile id is used by profiles to associate to a game.  It is just an incrementing
+unique number.  Profile IDs are exposed in plain text xml in profiles so we don't want them
+to be the same as game IDs.
+
+Game ids are used by the TrackIR enhanced API to identify games.
+
+The game tag has the following attributes:
+    ProfileId - required
+    Id - required
+    Name - required
+    Exe - exe used to launch the game.  Can be blank
+    Version - version of the game required for TIR support.  Can be blank
+    Category - type of game (can be blank)
+        0 = Other (default)
+        1 = Flight
+        2 = Racing
+        3 = Space
+        4 = First Person
+    Url - link to naturalpoint location for more info
+        Default is the all games home page
+    DevType - developement type of the title. valid types are:
+        0 - retail title, always visible (default)
+        1 - title in development, hide unless unlocked (External developers)
+        2 - title in development, hide unless unlocked (internal to NaturalPoint)
+        3 - non-game title
+
+The none game descriptor must have profile id of 0 and game id of -1.
+
+Axis types are:
+    0 - Yaw
+    1 - pitch
+    2 - roll
+    3 - x
+    4 - y
+    5 - z
+
+Use the Restrict tag to define per axis restrictions and/or to tell the UI
+that the particular axis is supported for this game.  By default yaw and pitch
+are supported for all games.
+
+Use the DefaultProfile tag to specify the default profile to map to if one has
+not been set.  If the tag is not there, the default profile will be used.  This
+tag does not need to be set until the title goes public.
+-->
+<Games Version="156">
+    <Game ProfileId="0" Id="-1" Name="None" Exe="">
+    </Game>
+    <Game ProfileId="1" Id="1001" Name="IL-2 Forgotten Battles, ACE, Pacific Fighters" Exe="" Category="1">
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="2" Id="1002" Name="Lock-On: Modern Air Combat" Exe="lockon.exe" Category="1">
+        <Restrict Axis="0" Min="-12287" Max="12287"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="3" Id="1101" Name="First Eagles, Wings Over Europe, Strike Fighters" Exe="" Version="Service pack 2 or greater" Category="1">
+        <Restrict Axis="0" Min="-12287" Max="12287"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="4" Id="1201" Name="Target: Korea" Exe="" Category="1">
+        <Restrict Axis="0" Min="-12287" Max="12287"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="5" Id="1202" Name="Target: Rabaul" Exe="targetware.exe" Category="1">
+        <Restrict Axis="0" Min="-12287" Max="12287"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="6" Id="1301" Name="Flyboys / Warbirds" Exe="" Category="1">
+        <Restrict Axis="0" Min="-12287" Max="12287"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="7" Id="1501" Name="Mig Alley" Exe="mig.exe" Category="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="8" Id="1502" Name="Rowan's Battle Of Britain" Exe="" Category="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="9" Id="1901" Name="Falcon 4.0" Exe="" Category="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="10" Id="2101" Name="Enemy Engaged: Commanche vs Hokum" Exe="" Category="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="11" Id="2201" Name="MKMapper Keymapper" Exe="" Category="0">
+    </Game>
+    <Game ProfileId="12" Id="2302" Name="Flight Simulator 2002" Exe="fs2002.exe" Category="1">
+        <Restrict Axis="0" Min="-16380" Max="16380"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="13" Id="2303" Name="Flight Simulator 2004" Exe="fs9.exe" Version="9.0 or 9.1" Category="1">
+        <Restrict Axis="0" Min="-16380" Max="16380"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <Restrict Axis="2" Supported="1"></Restrict>
+        <Restrict Axis="3" Supported="1"></Restrict>
+        <Restrict Axis="4" Supported="1"></Restrict>
+        <Restrict Axis="5" Supported="1"></Restrict>
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="14" Id="2304" Name="Combat Flight Simulator 3" Exe="" Category="1" Version="3.1 Patch">
+        <Restrict Axis="0" Min="-16380" Max="16380"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <Restrict Axis="2" Supported="0"></Restrict>
+        <Restrict Axis="3" Supported="1"></Restrict>
+        <Restrict Axis="4" Supported="1"></Restrict>
+        <Restrict Axis="5" Supported="1"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="15" Id="2701" Name="Aces High II" Exe="" Version="2.01 Patch 6" Category="1">
+        <Restrict Axis="2" Supported="1"></Restrict>
+        <Restrict Axis="3" Supported="1"></Restrict>
+        <Restrict Axis="4" Supported="1"></Restrict>
+        <Restrict Axis="5" Supported="1"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="16" Id="2901" Name="X-Cockpit for X-Plane" Exe="" Category="1">
+        <Restrict Axis="0" Min="-12287" Max="12287"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="17" Id="3101" Name="KAF Keymapper" Exe="" Category="0">
+    </Game>
+    <Game ProfileId="18" Id="3301" Name="Battleground Europe : World War II Online" Category="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="19" Id="3401" Name="Richard Burns Rally" Exe="" Version="1.02 Patch" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="20" Id="3901" Name="GTR" Exe="gtr.exe" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="21" Id="4001" Name="RealFlight" Exe="" Category="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="22" Id="4401" Name="F1 Challenge 99-02" Exe="" Category="2">
+        <Restrict Axis="0" Min="-8191" Max="8191"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="23" Id="5101" Name="Micro Flight" Exe="" Category="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="24" Id="5201" Name="Virtual Sailor" Exe="" Category="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="25" Id="6001" Name="Jump to Lightspeed" Exe="SwgClient_r.exe" Version="11.3" Category="3">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="26" Id="7401" Name="rFactor" Exe="" Version="" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="27" Id="6701" Name="Grand Prix Legends" Exe="" Version="GPLshift+ Patch v0.7.2 or higher, created by JSJ" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="28" Id="2202" Name="tir2joy" Exe="tir2joy.exe" Version="" Category="0">
+    </Game>
+    <Game ProfileId="29" Id="7101" Name="Live For Speed" Exe="" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="30" Id="1601" Name="Birds of Prey" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="31" Id="1701" Name="Full Out" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="32" Id="1801" Name="West Racing" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="33" Id="1902" Name="Falcon 5" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="34" Id="2001" Name="Combat Helo" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="35" Id="2401" Name="Racer" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="36" Id="2501" Name="Jetfighter V" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="37" Id="2602" Name="NASCAR Heat" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="38" Id="2801" Name="SFSPC" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="39" Id="3001" Name="X-Tower for X-Plane" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="40" Id="3501" Name="Viper Arena" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="41" Id="3601" Name="Air Traffic Control Tower" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="42" Id="3701" Name="Raydon Driving Simulator" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="43" Id="3801" Name="Halo" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="44" Id="4101" Name="America's Army" Exe="" Version="" Category="4" DevType="0">
+    </Game>
+    <Game ProfileId="45" Id="4201" Name="Motorsport Simulators" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="46" Id="4301" Name="Accessible Computer Games" Exe="" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="47" Id="4501" Name="Jet Thunder" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="48" Id="4601" Name="Untitled WorkShield" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="49" Id="4701" Name="Trainz" Exe="" Version="" Category="0">
+    </Game>
+    <Game ProfileId="50" Id="4801" Name="Cross Racing Championship" Exe="" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="51" Id="4901" Name="C-Spine" Exe="" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="52" Id="5001" Name="DriveSim" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="53" Id="5301" Name="Torque Game Engine" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="54" Id="5401" Name="Operation Air Assault 2" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="55" Id="5501" Name="X2: The Threat" Exe="" Version="" Category="3" DevType="1">
+    </Game>
+    <Game ProfileId="56" Id="5601" Name="Crashday" Exe="" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="57" Id="5701" Name="UK Rally Champion" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="58" Id="5801" Name="Sirocco Racing" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="59" Id="5901" Name="Condor: The Competitive Soaring Simulator" Exe="" Version="" Category="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="60" Id="6101" Name="Battlecruiser" Exe="" Version="" Category="3" DevType="1">
+    </Game>
+    <Game ProfileId="61" Id="6201" Name="NASCAR SimRacing" Exe="" Version="" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="62" Id="6301" Name="Rise: The Vieneo Province" Exe="" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="63" Id="6401" Name="Starshatter" Exe="" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="64" Id="6501" Name="Battlefield 2 Trauma Studios" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="65" Id="6601" Name="MS World Tour Kart 2004" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="66" Id="6801" Name="Untitled Apportmedia" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="67" Id="6901" Name="Ford Racing 3" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="68" Id="7001" Name="Battle of Britain II - Wings of Victory" Exe="" Version="" Category="1">
+    </Game>
+    <Game ProfileId="69" Id="10001" Name="Void War" Exe="" Version="" Category="3" DevType="1">
+    </Game>
+    <Game ProfileId="70" Id="7201" Name="World Racing 2" Exe="" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="71" Id="7301" Name="Untitled G5 Software" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="72" Id="7501" Name="VBS2" Exe="" Version="" Category="4" DevType="0">
+    </Game>
+    <Game ProfileId="73" Id="7601" Name="Operation Flashpoint 2 (inactive)" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="74" Id="7701" Name="X-Plane" Exe="" Version="8.10" Category="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="75" Id="7804" Name="NASCAR Racing 2003 season" Exe="" Version="1.2.0.1 Patch" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+        <Restrict Axis="0" Min="-7000" Max="7000"></Restrict>
+        <Restrict Axis="1" Min="-7000" Max="7000"></Restrict>
+        <Restrict Axis="2" Min="-8191" Max="8191" Supported="1"></Restrict>
+        <Restrict Axis="3" Min="-8191" Max="8191" Supported="1"></Restrict>
+        <Restrict Axis="4" Min="-8191" Max="8191" Supported="1"></Restrict>
+        <Restrict Axis="5" Min="-8191" Max="8191" Supported="1"></Restrict>
+    </Game>
+    <Game ProfileId="76" Id="7805" Name="Microsoft Train Simulator" Exe="" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="77" Id="7901" Name="Dark Horizons Lore" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="78" Id="1302" Name="Dawn of Aces II" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="79" Id="2203" Name="TIRF4" Exe="TIRF4.exe" Version="" Category="0">
+    </Game>
+    <Game ProfileId="80" Id="8001" Name="Faros Driving Simulator" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="81" Id="8101" Name="Toca Race Driver 3" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="82" Id="8201" Name="Virtual RC Racing" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="83" Id="3902" Name="GT Legends" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="84" Id="8301" Name="Big Scale Racing" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="85" Id="5302" Name="Lore (Dark Horizons)" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="87" Id="20001" Name="Herissons (Paris France)" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="88" Id="20002" Name="J.J. Keller and Associates" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="89" Id="20003" Name="North Eastern University" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="90" Id="20004" Name="Stanford University" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="91" Id="20005" Name="T and TS Corp." Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="92" Id="20006" Name="In Touch Technologies Inc." Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="93" Id="8501" Name="Mouse Emulation" Version="" Category="0">
+    </Game>
+    <Game ProfileId="94" Id="8401" Name="Fighter Ace" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="95" Id="7806" Name="HL2 (Unsupported Demo)" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="96" Id="8601" Name="3ds Max" Version="" Category="0" DevType="2">
+    </Game>
+    <Game ProfileId="97" Id="8701" Name="Silent Wings" Version="" Category="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="98" Id="8801" Name="Commandos Strike Force" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="99" Id="8901" Name="Falcon 4.0: Allied Force" Version="" Category="1" DevType="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="100" Id="9001" Name="Janes F18" Version="" Category="1" DevType="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="101" Id="9101" Name="R-concept X (AdrenalinStorm)" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="102" Id="9201" Name="Project Reality (BF2 Mod)" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="103" Id="9301" Name="Fighter Ops" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="104" Id="9401" Name="Insurgency" Version="" Category="4" DevType="0">
+    </Game>
+    <Game ProfileId="105" Id="2308" Name="Untitled Microsoft" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="106" Id="9501" Name="Mech Tactical Sim" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="107" Id="9601" Name="Battlefield 2" Version="" Category="4" DevType="1">
+        <ApplicationID>B1560A2A73276592</ApplicationID>
+    </Game>
+    <Game ProfileId="108" Id="9701" Name="Priston Tale" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="109" Id="20008" Name="Vestibular Ocular Reflex" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="110" Id="8102" Name="ToCA Race Driver 2" Version="1.2 Patch" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+        <Restrict Axis="0" Min="-8191" Max="8191"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="8191"></Restrict>
+        <Restrict Axis="2" Min="-8191" Max="8191" Supported="1"></Restrict>
+        <Restrict Axis="3" Supported="1"></Restrict>
+        <Restrict Axis="4" Supported="1"></Restrict>
+        <Restrict Axis="5" Supported="1"></Restrict>
+    </Game>
+    <Game ProfileId="111" Id="8103" Name="Colin McRae Rally 04" Version="1.01 Patch" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+        <Restrict Axis="0" Min="-8191" Max="8191"></Restrict>
+        <Restrict Axis="1" Min="-8191" Max="8191"></Restrict>
+        <Restrict Axis="2" Min="-8191" Max="8191" Supported="1"></Restrict>
+        <Restrict Axis="3" Min="-8191" Max="8191" Supported="1"></Restrict>
+        <Restrict Axis="4" Min="-8191" Max="8191" Supported="1"></Restrict>
+        <Restrict Axis="5" Min="-8191" Max="8191" Supported="1"></Restrict>
+    </Game>
+    <Game ProfileId="112" Id="9801" Name="Rig N Roll" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="113" Id="9901" Name="Real Time Visual" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="114" Id="20009" Name="CCG Metamedia" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="115" Id="7807" Name="Wings of War" Version="1.2 Patch" Category="1" DevType="0">
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="116" Id="7808" Name="Grand Theft Auto: San Andreas" Version="1.0" Category="0" DevType="2">
+        <Restrict Axis="1" Min="-8191" Max="7500"></Restrict>
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="117" Id="10101" Name="X-Plane 6DOF Plugin" Version="" Category="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="118" Id="20010" Name="Morgan State University" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="119" Id="10201" Name="Sailors of the Sky" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="120" Id="10301" Name="Orbiter 2005 Plug-In" Version="" Category="3" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="121" Id="10401" Name="Dead Reckoning" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="122" Id="10501" Name="Lucid Engine" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="123" Id="20011" Name="OptiMetrics" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="124" Id="10601" Name="ArmA" Version="" Category="4" DevType="0">
+    </Game>
+    <Game ProfileId="125" Id="10701" Name="Concept RS" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="126" Id="20012" Name="Beckman Institute UIUC" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="127" Id="10901" Name="NetKar Pro" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="128" Id="10801" Name="VIRTools Engine" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="129" Id="11001" Name="Storm of War: the Battle of Britain" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+        <ApplicationID>8F54A68B71F25D02</ApplicationID>
+    </Game>
+    <Game ProfileId="130" Id="11101" Name="Whirlwind of Vietnam" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="131" Id="11201" Name="Battleground Europe : WWII Online" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="132" Id="20013" Name="Aprisoft Traumhaus Designer" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="133" Id="20014" Name="Aprisoft Gartenplaner" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="134" Id="11401" Name="Rise of Flight" Version="" Category="1" DevType="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="135" Id="11501" Name="Motor Company" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="136" Id="11601" Name="Live for Speed S2" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="137" Id="3903" Name="RACE 07, RACE, GTR 2" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="138" Id="11701" Name="Steel Beasts Pro" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="139" Id="11702" Name="Steel Beasts Pro Personal" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="140" Id="11703" Name="Steel Beasts 2" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="141" Id="11301" Name="X-Plane Pilot View" Exe="" Version="" Category="1"  DevType="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+        <Restrict Axis="0" Supported="1"></Restrict>
+        <Restrict Axis="1" Supported="1"></Restrict>
+        <Restrict Axis="2" Supported="1"></Restrict>
+        <Restrict Axis="3" Supported="1"></Restrict>
+        <Restrict Axis="4" Supported="1"></Restrict>
+        <Restrict Axis="5" Supported="0"></Restrict>
+    </Game>
+    <Game ProfileId="142" Id="11801" Name="EVE Online" Exe="" Version="" Category="3"  DevType="0">
+    </Game>
+    <Game ProfileId="143" Id="11901" Name="Eagle Lander 3D" Exe="" Version="" Category="3"  DevType="1">
+    </Game>
+    <Game ProfileId="144" Id="12001" Name="Key Macro View" Exe="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="145" Id="12101" Name="Rising Conflicts" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="146" Id="20015" Name="SIA Games" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="147" Id="12201" Name="Eventology" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="148" Id="2305" Name="Flight Simulator X" Version="" Category="1" DevType="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="149" Id="12401" Name="SilverHat" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="150" Id="20016" Name="AV Core Technology" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="151" Id="12501" Name="Counter Strike" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="152" Id="20017" Name="NASA Crew Exploration Vehicle" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="153" Id="20018" Name="Creative Labs headset" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="154" Id="20019" Name="BAE Systems HILAS cockpit" Version="" Category="1" DevType="3">
+    </Game>
+    <Game ProfileId="155" Id="12601" Name="Red Orchestra: Ostfront" Version="" Category="4" DevType="1">
+        <ApplicationID>9A9A2BE97252BB90</ApplicationID>
+    </Game>
+    <Game ProfileId="156" Id="20020" Name="3D-Fahrschule Driving Simulator" Version="" Category="1" DevType="3">
+    </Game>
+    <Game ProfileId="157" Id="20030" Name="Racer S" Version="" Category="1" DevType="3">
+    </Game>
+    <Game ProfileId="158" Id="2309" Name="MSN Virtual Earth" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="159" Id="20021" Name="Simax Simulator" Version="" Category="1" DevType="0">
+    </Game>
+    <Game ProfileId="160" Id="20022" Name="Project X" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="161" Id="12701" Name="Untitled ZootFly" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="162" Id="12801" Name="Untitled Sega of America" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="163" Id="12901" Name="Flight Gear" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="164" Id="13001" Name="Driving Simulator" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="165" Id="13101" Name="Future Pinball" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="166" Id="20023" Name="SimQuest immersion system" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="167" Id="9651"  Name="BF2 (Unsupported Demo)" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="168" Id="13201" Name="Test Drive Unlimited" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="169" Id="13301" Name="Beyond The Red Line" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="170" Id="13401" Name="thriXXX Jenna" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="171" Id="13402" Name="ThriXXX Technology" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="172" Id="13403" Name="thriXXX HII 3D" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="173" Id="13501" Name="Brothers In Arms" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="174" Id="13601" Name="18 Wheels of Steel: Haulin'" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="175" Id="5002" Name="Ship Simulator 2006" Exe="" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="176" Id="20024" Name="UVEG Machinery Simulator" Exe="" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="177" Id="13701" Name="Untitled 10tacle" Exe="" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="178" Id="13801" Name="Untitled Combat Flight Sim" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="179" Id="13901" Name="Nitro Stunt Racing" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="180" Id="10302" Name="Orbiter 2006 Plug-In" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="181" Id="10303" Name="Orbiter 2006" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="182" Id="14001" Name="Driver's Republic" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="183" Id="14201" Name="Zombie AA Research" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="184" Id="14101" Name="iRacing" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="185" Id="14401" Name="Gothic 3" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="186" Id="14501" Name="Paraworld" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="187" Id="14601" Name="Untitled Deep Silver" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="188" Id="14701" Name="Stoked Rider" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="189" Id="14301" Name="Xyphoid" Version="" Category="3" DevType="1">
+    </Game>
+    <Game ProfileId="190" Id="14801" Name="FlyingGuns" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="191" Id="14901" Name="Arvoch Conflict" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="192" Id="15001" Name="Jumpgate" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="193" Id="3904" Name="RACE (the WTCC game)" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="194" Id="14902" Name="Untitled Ron E" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="195" Id="14903" Name="Superkarting" Version="" Category="2" DevType="1">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="196" Id="14904" Name="Evochron Alliance 2.0" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="197" Id="15101" Name="Hyper Vision" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="198" Id="14202" Name="Rogue Warrior" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="199" Id="15201" Name="AirBook" Exe="" Version="" Category="1"  DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="200" Id="5303" Name="HoverAssault" Exe="" Version="" Category="0"  DevType="1">
+    </Game>
+    <Game ProfileId="201" Id="20025" Name="Lockheed Martin Littoral Combat Ship simulator" Exe="" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="202" Id="7002" Name="Flying Tigers" Exe="" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="203" Id="20026" Name="MaqSIM4" Exe="" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="204" Id="20027" Name="IREQ Robotic Camera Control" Exe="" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="205" Id="15301" Name="Lionhead MGS Game Research" Exe="" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="206" Id="15401" Name="SuperX Research" Exe="" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="207" Id="20028" Name="Oryx Vehicle Simulators" Exe="" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="208" Id="12502" Name="Source Engine (Half-Life 2)" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="209" Id="20029" Name="Crystal Growth Simulation" Exe="" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="210" Id="7003" Name="Air Battles: Sky Defender" Exe="" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="211" Id="15501" Name="Untitled 3D People" Exe="" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="212" Id="20031" Name="VizRD" Exe="" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="213" Id="15601" Name="NecroVisioN" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="214" Id="8104" Name="DiRT" Version="" Category="2">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="215" Id="15701" Name="1944 D-Day" Exe="" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="216" Id="15801" Name="Turismo Carretera" Exe="" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="217" Id="15901" Name="Delivery" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="218" Id="16001" Name="D2x-XL" Version="" Category="3" DevType="1">
+    </Game>
+    <Game ProfileId="219" Id="11102" Name="WWII Battle Tanks: T-34 vs. Tiger" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="220" Id="5003" Name="Ship Simulator 2008" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="221" Id="2102" Name="Enemy Engaged 2" Version="" Category="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="222" Id="20032" Name="Imagine 3D ATC Tower Simulation" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="223" Id="20033" Name="Rio Tinto Resource Development" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="224" Id="5502" Name="X3 Reunion" Version="" Category="3" DevType="1">
+    </Game>
+    <Game ProfileId="225" Id="20034" Name="SimSol" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="226" Id="20035" Name="Auditory Displays for the blind" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="227" Id="14905" Name="Evochron Renegades" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="228" Id="1025" Name="Down In Flames" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="229" Id="1050" Name="Gamma" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="230" Id="1075" Name="Untitled Research" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="231" Id="20036" Name="Innovatec Simulator" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="232" Id="1125" Name="Red Baron 3D" Version="" Category="1" DevType="0">
+    </Game>
+    <Game ProfileId="233" Id="20037" Name="IESA" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="234" Id="20038" Name="EVOC-101 Training" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="235" Id="1150" Name="X Motor Racing" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="236" Id="15002" Name="Jumpgate Evolution" Version="" Category="3" DevType="1">
+        <ApplicationID>5936D4F93DCE0CE7</ApplicationID>
+    </Game>
+    <Game ProfileId="237" Id="1175" Name="Harrier Attack II" Version="" Category="1" DevType="0">
+    </Game>
+    <Game ProfileId="238" Id="1225" Name="Space Shuttle Mission" Version="" Category="1" DevType="0">
+    </Game>
+    <Game ProfileId="239" Id="20039" Name="R.U.D.O. Tools" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="240" Id="20040" Name="Quest3D - CINEACT integration" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="241" Id="20041" Name="zedasoft F-35 Demo" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="242" Id="20042" Name="TrainMaster" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="243" Id="1250" Name="iamfootball" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="244" Id="1275" Name="VT08" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="245" Id="1325" Name="Tower I" Version="" Category="1" DevType="0">
+    </Game>
+    <Game ProfileId="246" Id="1350" Name="Illumina" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="247" Id="20043" Name="Quest 3D Xframe Plugin" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="248" Id="20044" Name="GSE Power Plant Simulation" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="249" Id="20045" Name="Meggitt Defense Systems" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="250" Id="1375" Name="Total War" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="251" Id="1425" Name="Quest3D" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="252" Id="20046" Name="Reality Manager" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="253" Id="20047" Name="Shooting Simulator" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="254" Id="20048" Name="Crane Simulator" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="255" Id="13002" Name="Targeting Demo" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="256" Id="13003" Name="Meteoroid Maze" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="257" Id="13302" Name="FreeSpace2" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="258" Id="1450" Name="Wallbusters" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="259" Id="20049" Name="Onadime - Realtime Animation" Version="" Category="1" DevType="3">
+    </Game>
+    <Game ProfileId="260" Id="20050" Name="Brain-IT Group" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="261" Id="2325" Name="Over Flanders Fields" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="262" Id="1475" Name="RidingStar" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="263" Id="1003" Name="Black Shark" Version="" Category="1" DevType="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+        <ApplicationID>B6DCD15F5A572F65</ApplicationID>
+    </Game>
+    <Game ProfileId="264" Id="20051" Name="L-3 Communications" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="265" Id="8105" Name="GRID" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="266" Id="13602" Name="Euro Truck Simulator" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="267" Id="2306" Name="Microsoft ESP" Version="" Category="1" DevType="0">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="268" Id="5102" Name="Vehicle Simulator (Quality Simulations)" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="269" Id="4802" Name="Project Torque (Invictus)" Version="" Category="2" DevType="0">
+        <DefaultProfile>Racing.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="270" Id="1526" Name="Sky God: Military Freefall" Version="" Category="4" DevType="1">
+        <ApplicationID>2C0104385FD1C444</ApplicationID>
+    </Game>
+    <Game ProfileId="271" Id="9602" Name="Battlefield 2142" Version="" Category="4" DevType="1">
+        <ApplicationID>1C739AD3817FD433</ApplicationID>
+    </Game>
+    <Game ProfileId="272" Id="8106" Name="Operation Flashpoint 2" Version="" Category="4" DevType="1">
+        <ApplicationID>3328780E13226761</ApplicationID>
+    </Game>
+    <Game ProfileId="273" Id="7502" Name="ArmA 2" Version="" Category="4" DevType="0">
+        <ApplicationID>EB3616B3A44F05B9</ApplicationID>
+    </Game>
+    <Game ProfileId="274" Id="1525" Name="The Sky Gods" Version="" Category="4" DevType="1">
+        <ApplicationID>DFF782DCCEEA27C2</ApplicationID>
+    </Game>
+    <Game ProfileId="275" Id="9002" Name="FIFA 09" Version="" Category="0" DevType="1">
+        <ApplicationID>288979C65B0DAA0D</ApplicationID>
+    </Game>
+    <Game ProfileId="276" Id="1303" Name="Armored Assault - Gold Edition" Version="" Category="0" DevType="1">
+        <ApplicationID>A7F7CAA00814ECA7</ApplicationID>
+    </Game>
+    <Game ProfileId="277" Id="1304" Name="Dawn of Aces - Gold Edition" Version="" Category="1" DevType="1">
+        <ApplicationID>A9ED7700814190DE</ApplicationID>
+    </Game>
+    <Game ProfileId="278" Id="1305" Name="Battle of Britain (iENT)" Version="" Category="1" DevType="1">
+        <ApplicationID>0BA119195B701AED</ApplicationID>
+    </Game>
+    <Game ProfileId="279" Id="20075" Name="VVVV Plugin" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="280" Id="1550" Name="Rail Simulator 1" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="281" Id="2307" Name="FSalpha" Version="" Category="1" DevType="1">
+        <ApplicationID>AFBC54959539C515</ApplicationID>
+    </Game>
+    <Game ProfileId="282" Id="1575" Name="Dungeons and Dragons Online" Version="" Category="0" DevType="1">
+        <ApplicationID>BD4D4DDC6BB68188</ApplicationID>
+    </Game>
+    <Game ProfileId="283" Id="1625" Name="Crysis Mod" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="284" Id="20100" Name="Air Phobia" Version="" Category="0" DevType="3">
+    </Game>
+    <Game ProfileId="285" Id="1650" Name="Flyer" Version="" Category="1" DevType="1">
+        <DefaultProfile>Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="286" Id="20125" Name="Walkabout3d" Version="" Category="1" DevType="3">
+    </Game>
+    <Game ProfileId="287" Id="20150" Name="CameraGripTools" Version="" Category="0" DevType="0">
+    </Game>
+    <Game ProfileId="288" Id="20175" Name="John Deere Vehicle Simulator" Version="" Category="2" DevType="0">
+    </Game>
+    <Game ProfileId="289" Id="1675" Name="Fighter Squadron: Screamin Demons Over Europe" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="290" Id="1004" Name="Tom Clancy's H.A.W.X." Version="" Category="1" DevType="0">
+        <ApplicationID>AA4D48E85966FBAA</ApplicationID>
+    </Game>
+    <Game ProfileId="291" Id="20195" Name="RTT DeltaGen Plugin" Version="" Category="1" DevType="3">
+    </Game>
+    <Game ProfileId="292" Id="20185" Name="F-35 PTA" Version="" Category="1" DevType="3">
+    </Game>
+    <Game ProfileId="293" Id="20200" Name="Virtools Plugin" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="294" Id="14906" Name="Evochron Legends" Version="" Category="3" DevType="0">
+    </Game>
+    <Game ProfileId="295" Id="1725" Name="Farmer Simulator 2009" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="296" Id="7525" Name="Pointman" Version="" Category="4" DevType="0">
+    </Game>
+    <Game ProfileId="297" Id="20205" Name="Creanex Training Simulator" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="298" Id="20210" Name="Redline Monitor" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="299" Id="20215" Name="RealWorld" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="300" Id="1750" Name="F-22 Total Air War" Version="" Category="1" DevType="0">
+    </Game>
+    <Game ProfileId="301" Id="14203" Name="America's Army 3" Version="" Category="4" DevType="1">
+        <ApplicationID>3F3206BCEA252BB7</ApplicationID>
+    </Game>
+    <Game ProfileId="302" Id="1775" Name="Aaaaa!" Version="" Category="4" DevType="1">
+    </Game>
+    <Game ProfileId="303" Id="20220" Name="EasyVR" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="304" Id="20225" Name="Railway Work Simulator" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="305" Id="20230" Name="SWRI Demo" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="306" Id="20235" Name="3d Nav" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="307" Id="20245" Name="Virtual Driving" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="308" Id="20250" Name="ANAG 3D" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="309" Id="20255" Name="HPG Tracking" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="310" Id="1825" Name="X1Alpha" Version="" Category="1" DevType="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="311" Id="20260" Name="TPL Testing" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="312" Id="20265" Name="Driver Test" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="313" Id="20270" Name="FTAlpha" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="314" Id="20275" Name="VW Testing" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="315" Id="20280" Name="Virtual Supermarket" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="316" Id="20285" Name="TNO" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="317" Id="20290" Name="Santa Cruz Watermill" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="318" Id="20295" Name="Medical Image Visualization" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="319" Id="1850" Name="Bomber Squadron" Version="" Category="1" DevType="1">
+        <DefaultProfile>Combat_Flight.xml</DefaultProfile>
+    </Game>
+    <Game ProfileId="320" Id="20300" Name="STS Driving Simulator" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="321" Id="12602" Name="Red Orchestra: Heroes of Stalingrad" Version="" Category="4" DevType="1">
+        <ApplicationID>21F9121056CD9973</ApplicationID>
+    </Game>
+    <Game ProfileId="322" Id="1875" Name="Sky Aces" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="323" Id="1876" Name="Road Legends" Version="" Category="2" DevType="1">
+    </Game>
+    <Game ProfileId="324" Id="1877" Name="Birds of Prey" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="325" Id="20303" Name="EADS Testing" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="326" Id="20310" Name="ILP" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="327" Id="1900" Name="Outer Conflict: Frontiers" Version="" Category="3" DevType="1">
+    </Game>
+    <Game ProfileId="328" Id="20315" Name="Simball 4D" Version="" Category="0" DevType="1">
+    </Game>
+    <Game ProfileId="329" Id="20320" Name="F16 Simulator" Version="" Category="1" DevType="1">
+    </Game>
+    <Game ProfileId="330" Id="1925" Name="TD Demo" Version="" Category="0" DevType="1">
+    </Game>
+
+</Games>
+

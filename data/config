@@ -1,0 +1,5 @@
+# Use key names from /usr/include/X11/keysymdef.h without the
+# XK_ prefix, to specify keybindings.
+
+recenter = Scroll_Lock
+pause = Pause
